@@ -43,9 +43,9 @@ while True:
 
     games_played += 1
 
-    player_win_chance = player_wins/games_played*100
+    player_win_rate = player_wins/games_played*100
 
-    computer_win_chance = computer_wins/games_played*100
+    computer_win_rate = computer_wins/games_played*100
 
     if result == "win":
         result_sentence = "You win!"
@@ -59,14 +59,27 @@ while True:
     print("You chose: " + player_choice + "\nThe computer chose: " + computer_choice)
 
     print(f"\nPlayer wins = {player_wins}"
-          f"\nPlayer losses = {player_losses}"
-          f"\nPlayer win chance = {player_win_chance:.2f} %")
+          f"\nPlayer win rate = {player_win_rate:.2f}%"
+          f"\nPlayer losses = {player_losses}")
     print(f"\nComputer wins = {computer_wins}"
-          f"\nComputer losses = {computer_losses}"
-          f"\nComputer win chance = {computer_win_chance:.2f} %")
+          f"\nComputer win rate = {computer_win_rate:.2f}%"
+          f"\nComputer losses = {computer_losses}")
 
     print(f"\nGames played = {games_played}"
           f"\nTies = {ties}")
 
     if input("\nPlay again?\nyes = y no = n\n").lower() == "n":
+        if player_wins > computer_wins:
+            winner_sentence = "The Player wins the match!"
+        elif player_wins < computer_wins:
+            winner_sentence = "The Computer wins the match!"
+        else:
+            winner_sentence = "The Match ends in a tie!"
+
+        print(f"\nFinal result:"
+              f"\n{winner_sentence}"
+              f"\nYour wins = {player_wins}"
+              f"\nYour win rate = {player_win_rate:.2f}%"
+              f"\nTies = {ties}"
+              f"\nYour losses = {player_losses}")
         break
