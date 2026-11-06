@@ -1,5 +1,15 @@
 import random
 
+import funcs
+
+def determine_result(player, computer):
+    if player == computer:
+        return "tie"
+    elif x_beats_y[player] == computer:
+        return "win"
+    else:
+        return "loss"
+
 options = ["rock", "paper", "scissors"]
 
 short_options = {"r" : "rock", "p" : "paper", "s" : "scissors"}
@@ -29,30 +39,25 @@ while True:
 
     computer_choice = random.choice(options)
 
-    if player_choice == computer_choice:
-        result = "tie"
-        ties +=1
-    elif x_beats_y[player_choice] == computer_choice:
-        result = "win"
+    result = determine_result(player_choice, computer_choice)
+
+    if result == "win":
+        result_sentence = "You win!"
         player_wins += 1
         computer_losses += 1
+    elif result == "tie":
+        result_sentence = "It's a tie!"
+        ties += 1
     else:
-        result = "loss"
+        result_sentence = "You lose!"
         computer_wins += 1
         player_losses += 1
 
     games_played += 1
 
-    player_win_rate = player_wins/games_played*100
+    player_win_rate = player_wins / games_played * 100
 
-    computer_win_rate = computer_wins/games_played*100
-
-    if result == "win":
-        result_sentence = "You win!"
-    elif result == "tie":
-        result_sentence = "It's a tie!"
-    else:
-        result_sentence = "You lose!"
+    computer_win_rate = computer_wins / games_played * 100
 
     print("\n" + result_sentence + "\n")
 
