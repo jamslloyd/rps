@@ -28,9 +28,9 @@ player_losses = 0
 
 print("\nWelcome to rock paper scissors!")
 
-mode = input("\nWhat mode would you like? Best of 3, best of 5 or unlimited (u): ").lower()
+mode = input("What mode would you like? Best of 3, best of 5 or unlimited (u): ").lower()
 while mode not in ["3", "5", "unlimited", "u"]:
-    mode = input("\nPlease enter 3, 5 or unlimited (u): ").lower()
+    mode = input("Please enter 3, 5 or unlimited (u): ").lower()
 
 if mode in ["unlimited", "u"]:
     wins_needed = 0
@@ -71,14 +71,10 @@ while True:
 
     print("\n" + result_sentence + "\n")
 
-    print("You chose: " + player_choice + "\nThe computer chose: " + computer_choice)
+    print("You chose: " + player_choice + " | The computer chose: " + computer_choice)
 
-    print(f"\nPlayer wins = {player_wins}"
-          f"\nPlayer win rate = {player_win_rate:.2f}%"
-          f"\nPlayer losses = {player_losses}")
-    print(f"\nComputer wins = {computer_wins}"
-          f"\nComputer win rate = {computer_win_rate:.2f}%"
-          f"\nComputer losses = {computer_losses}")
+    print(f"\nPlayer wins = {player_wins} | Player win rate = {player_win_rate:.2f}% | Player losses = {player_losses}")
+    print(f"Computer wins = {computer_wins} | Computer win rate = {computer_win_rate:.2f}% | Computer losses = {computer_losses}")
 
     print(f"\nGames played = {games_played}"
           f"\nTies = {ties}")
@@ -87,7 +83,7 @@ while True:
         print(f"\nThe score is: {player_wins} : {computer_wins}")
 
     if wins_needed == 0:
-        if input("\nPlay again?\nyes = y no = n\n").lower() == "n":
+        if input("\nPlay again? yes = y no = n\n").lower() == "n":
             break
     elif player_wins == wins_needed or computer_wins == wins_needed:
         break
@@ -101,7 +97,6 @@ else:
 
 print(f"\nFinal result:"
       f"\n{winner_sentence}"
-      f"\nYour wins = {player_wins}"
       f"\nYour win rate = {player_win_rate:.2f}%"
-      f"\nTies = {ties}"
-      f"\nYour losses = {player_losses}")
+      f"\nYour wins = {player_wins} | Ties = {ties} | Your losses = {player_losses}"
+      f"\nYour win rate = {player_win_rate:.2f}%")
